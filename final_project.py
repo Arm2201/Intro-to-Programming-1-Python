@@ -99,6 +99,22 @@ while running:
 
     to_unit = input("Enter your target unit number: ")
 
+        # Validate target unit selection based on category
+    if from_unit in ["1", "2", "3", "4", "5"]:  # Length units
+        valid_targets = ["1", "2", "3", "4", "5"]
+    elif from_unit in ["6", "7", "8", "9", "10"]:  # Weight units
+        valid_targets = ["6", "7", "8", "9", "10"]
+    elif from_unit in ["11", "12", "13"]:  # Temperature units
+        valid_targets = ["11", "12", "13"]
+    elif from_unit in ["14", "15"]:  # Volume units
+        valid_targets = ["14", "15"]
+
+    if to_unit not in valid_targets:
+        print("Please select only from the available choices above.")
+        input("Press Enter to return to the menu...")
+        continue
+
+
     # Check valid target input
     if not to_unit.isdigit():
         print("Please enter a number for the target unit.")
